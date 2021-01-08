@@ -20,12 +20,42 @@ struct ContentView: View {
         reminders(task: "Water the plant"),
         reminders(task: "Take Tommy out")
     ]
+    @State var current_task = ""
+    @State var display_alert:Bool = false
     var body: some View {
         NavigationView{
             List{
-                
+        
+                ForEach(reminder_list){ (reminders) in
+                    Text(reminders.task)
+                }.onDelete(perform:delete)
+                TextField("Enter a reminder"
+                          ,text: $current_task )
             }
+            .alert(isPresented: $display_alert) {
+                    Alert(
+                        title: Text(
+                            "You cannot have an empty reminder.")
+                        )
+            }
+            .navigationTitle("Reminders")
+            .navigationBarItems(leading: Button(action: {
+                if current_task != ""{
+                    reminder_list.append(reminders(task:current_task))
+                    current_task = ""
+                } else{
+                    display_alert = true
+                }
+            }, label: {
+                    Text("Add")
+            })
+            ,
+            trailing: EditButton()
+            )
         }
+    }
+    func delete(at offsets:IndexSet){
+        reminder_list.remove(atOffsets: offsets)
     }
 }
 
