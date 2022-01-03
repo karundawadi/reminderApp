@@ -11,7 +11,7 @@ An simple reminder application designed using Swift
 
 
 ## Demo 
-<iframe width="1424" height="626" src="https://www.youtube.com/embed/IP4FBiz4aEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Working demo](https://img.youtube.com/vi/IP4FBiz4aEw/0.jpg)](https://www.youtube.com/watch?v=IP4FBiz4aEw)
 
 ## Dependencies 
 - Swift UI
